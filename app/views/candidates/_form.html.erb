@@ -1,0 +1,30 @@
+<% if @candidate.errors.any? %>
+<%= @candidate.errors.full_messages %>
+<% end %>
+
+
+<%= form_for @candidate do |form| %>
+
+    <br>
+        Name: <%= form.text_field :name %>
+    </br>
+
+    <br>
+        Party: <%= form.text_field :party %>
+    </br>
+
+    <br>
+        Age: <%= form.text_field :age %>
+    </br>
+
+    <br>
+        Politics: <%= form.text_area :politics %>
+    </br>
+
+    <br>
+        <%= form.submit %>
+    </br>
+
+<% end %>
+
+<%= link_to 'back', candidates_path %>

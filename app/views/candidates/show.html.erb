@@ -1,0 +1,16 @@
+<h1><%= @candidate.name %></h1>
+
+
+<table>
+    <tr>
+       <td>Party: <%= @candidate.party %></td>
+    </tr>
+    <tr>
+       <td>Age: <%= @candidate.age %></td>
+    </tr>
+    <tr>
+       <td>Politics: <%= @candidate.politics %></td>
+    </tr>
+</table>
+
+<%= link_to 'back', candidates_path %>

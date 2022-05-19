@@ -1,0 +1,33 @@
+<%= flash[:notice] %>
+
+<h1>VOTE CAMPAIGN</h1>
+
+<%= link_to 'Add Candidate', new_candidate_path %>
+
+
+<table>
+    <tr>
+        <td> </td>
+        <td> Vote</td>
+        <td> Name </td>
+        <td> Party </td>
+        <td> Age </td>
+        <td> Politics </td>
+        <td> Action </td>
+    </tr>
+    
+    <% @candidates.each do |candidate| %>
+    <tr>
+        <td><%= link_to 'Vote', vote_candidate_path(candidate.id), method: 'post' %></td>
+        <td><%= candidate.vote_logs_count %></td>
+        <td><%= link_to candidate.name, candidate_path(candidate.id) %></td>
+        <td><%= candidate.party %></td>
+        <td><%= candidate.age %></td>
+        <td><%= candidate.politics %></td>
+        <td>
+            <%= link_to 'edit', edit_candidate_path(candidate.id) %>
+            <%= link_to 'delete', candidate_path(candidate.id), method: 'delete', data: {confirm: 'Are you sure?!'} %>
+        </td>
+    </tr>
+    <% end %>
+</table>
