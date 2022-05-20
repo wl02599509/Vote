@@ -45,8 +45,10 @@ class CandidatesController < ApplicationController
 
     def vote
         @candidate.vote_logs.create(ip_address: request.remote_ip)
+        
         #send mails
-        VoteMailer.vote_notify('wl02599509@gmail.com').deliver
+        #VoteMailer.vote_notify('wl02599509@gmail.com').deliver  
+        VoteMailJob.perform_later
         flash[:notice]='Voted!'
         redirect_to '/candidates'
     end
