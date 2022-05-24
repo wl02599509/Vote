@@ -19,7 +19,7 @@
     <% @candidates.each do |candidate| %>
     <tr>
         <td><%= link_to 'Vote', vote_candidate_path(candidate.id), method: 'post' %></td>
-        <td><%= candidate.vote_logs_count %></td>
+        <td><%= candidate.vote_logs.size %></td>
         <td><%= link_to candidate.name, candidate_path(candidate.id) %></td>
         <td><%= candidate.party %></td>
         <td><%= candidate.age %></td>
