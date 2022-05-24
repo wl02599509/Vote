@@ -17,8 +17,8 @@ class CandidatesController < ApplicationController
         @candidate = Candidate.new(candidate_params)
 
         if @candidate.save
-            redirect_to '/candidates'
-            flash[:notice]='Create Candidate successfully!'
+            redirect_to '/candidates', notice: 'Create Candidate successfully!'
+            # flash[:notice]='Create Candidate successfully!'
         else
             render :new
         end      
@@ -29,8 +29,8 @@ class CandidatesController < ApplicationController
 
     def update
         if @candidate.update(candidate_params)
-            flash[:notice]='Candidate updated successfully!'
-            redirect_to '/candidates'
+ 
+            redirect_to '/candidates', notice: 'Candidate updated successfully!'
         else
             render :edit
         end
@@ -39,8 +39,8 @@ class CandidatesController < ApplicationController
     def destroy
         @candidate.destroy
 
-        flash[:notice]='Candidate deleted and never got back....'
-        redirect_to '/candidates'
+        # flash[:notice]='Candidate deleted and never got back....'
+        redirect_to '/candidates', notice: 'Candidate deleted and never got back....'
     end
 
     def vote
@@ -49,8 +49,8 @@ class CandidatesController < ApplicationController
         #send mails
         #VoteMailer.vote_notify('wl02599509@gmail.com').deliver  
         VoteMailJob.perform_later
-        flash[:notice]='Voted!'
-        redirect_to '/candidates'
+        # flash[:notice]='Voted!'
+        redirect_to '/candidates', notice: 'Voted!'
     end
 
     private
