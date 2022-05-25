@@ -1,9 +1,11 @@
-<% if @candidate.errors.any? %>
-<%= @candidate.errors.full_messages %>
+<% if candidate.errors.any? %>
+
+<%= candidate.errors.full_messages %>
+
 <% end %>
 
 
-<%= form_for @candidate do |form| %>
+<%= form_for candidate do |form| %>
 
     <br>
         Name: <%= form.text_field :name %>
