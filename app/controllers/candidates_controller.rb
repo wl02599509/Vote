@@ -61,4 +61,7 @@ class CandidatesController < ApplicationController
     def find_candidate_id
         @candidate = Candidate.find_by(id: params[:id]) 
     end
+
+    def git_push_test
+    end
 end
